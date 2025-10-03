@@ -1,0 +1,138 @@
+@import "@/styles/variables.scss";
+
+.transactionHistory {
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border-radius: $border-radius-medium;
+	padding: $padding-medium;
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+
+	h3 {
+		text-align: center;
+		font-weight: 700;
+		margin-bottom: $margin-medium;
+		font-size: $font-size-xl;
+		padding-bottom: $padding-small;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+		background: $primary-gradient;
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+}
+
+.historyContainer {
+	max-height: 300px;
+	overflow-y: auto;
+	padding-right: $padding-small;
+
+	scrollbar-width: thin;
+	scrollbar-color: $scrollbar-thumb $scrollbar-track;
+
+	&::-webkit-scrollbar {
+		width: $scrollbar-width;
+		background-color: $scrollbar-track;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $scrollbar-thumb;
+		border-radius: $border-radius-small;
+
+		&:hover {
+			background-color: $scrollbar-thumb-hover;
+		}
+	}
+}
+
+.transactionsList {
+	display: flex;
+	flex-direction: column;
+	gap: $margin-small;
+}
+
+.transactionItem {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: $border-radius-small;
+	padding: $padding-small;
+	border-left: 3px solid transparent;
+	transition: all $transition-fast;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.15);
+		box-shadow: $card-shadow-hover;
+	}
+
+	&.income {
+		border-left-color: rgba($success-color, 0.7);
+
+		.transactionAmount {
+			color: $success-color;
+		}
+	}
+
+	&.expense {
+		border-left-color: rgba($danger-color, 0.7);
+
+		.transactionAmount {
+			color: $danger-color;
+		}
+	}
+
+	&.playerAdded {
+		border-left-color: rgba($info-color, 0.7); // Фиолетовый бордер
+
+		.transactionAmount {
+			color: $info-color; // Фиолетовый цвет для суммы
+		}
+	}
+}
+
+.transactionTime {
+	font-size: $font-size-small;
+	color: $medium-gray;
+	margin-bottom: 4px;
+}
+
+.transactionDescription {
+	font-weight: 500;
+	color: $white;
+	font-size: $font-size-normal;
+	line-height: 1.3;
+	margin-bottom: 6px;
+}
+
+.transactionAmount {
+	font-weight: 700;
+	font-size: $font-size-large;
+
+	// Автоматические знаки для сумм
+	&::before {
+		content: "";
+		display: none;
+	}
+
+	&.positive::before {
+		content: "+";
+		margin-right: 4px;
+	}
+
+	&.negative::before {
+		content: "-";
+		margin-right: 4px;
+	}
+}
+
+.noTransactions {
+	text-align: center;
+	color: $medium-gray;
+	font-style: italic;
+	padding: $padding-large;
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+	border-radius: $border-radius-medium;
+	margin-top: $margin-medium;
+}

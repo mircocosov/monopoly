@@ -1,0 +1,185 @@
+@import '@/styles/variables.scss';
+
+.gameBoard {
+  h3 {
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: $margin-large;
+    font-size: $font-size-xxl;
+    border-bottom: 2px solid $glass-border;
+    padding-bottom: $padding-small;
+    text-align: center;
+    font-weight: 700;
+  }
+}
+
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $margin-medium;
+  margin-bottom: $margin-large;
+}
+
+.gameField {
+  background: $glass-background;
+  backdrop-filter: blur(10px);
+  border: 1px solid $glass-border;
+  box-shadow: $glass-shadow;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+  border-radius: $border-radius-large;
+  padding: $padding-large;
+  text-align: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $glass-border;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: $card-shadow-hover;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $primary-gradient;
+    transform: scaleX(0);
+    transition: transform $transition-fast;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.05);
+    
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+// Поля с доходами (светло-зеленый)
+.incomeField {
+  .fieldName {
+    color: #2ecc71;
+  }
+
+  .fieldDescription {
+    color: #27ae60;
+  }
+
+  .fieldAmount {
+    color: #2ecc71;
+  }
+
+  &::after {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  }
+}
+
+// Поля с расходами (темно-красный)
+.expenseField {
+  .fieldName {
+    color: #c0392b;
+  }
+
+  .fieldDescription {
+    color: #a93226;
+  }
+
+  .fieldAmount {
+    color: #c0392b;
+  }
+
+  &::after {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  }
+}
+
+.fieldName {
+  font-size: $font-size-xl;
+  margin-bottom: 8px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.fieldDescription {
+  font-size: 0.9rem;
+  margin-bottom: $margin-small;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.fieldAmount {
+  font-size: $font-size-large;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.boardInstructions {
+  text-align: center;
+  color: $dark-gray;
+  font-style: italic;
+  background: $glass-background;
+  backdrop-filter: blur(10px);
+  border: 1px solid $glass-border;
+  box-shadow: $glass-shadow;
+  border-radius: $border-radius-medium;
+  padding: $padding-medium;
+  margin-top: $margin-medium;
+}
+
+.warning {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+// Адаптивность
+@media (max-width: $breakpoint-mobile) {
+  .fieldsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $margin-small;
+  }
+
+  .gameField {
+    padding: $padding-medium;
+  }
+
+  .fieldName {
+    font-size: $font-size-normal;
+  }
+
+  .fieldDescription {
+    font-size: 0.8rem;
+  }
+}

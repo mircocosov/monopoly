@@ -1,0 +1,89 @@
+@import "./variables.scss";
+
+/* Основные стили */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $font-family;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	min-height: 100vh;
+	color: $secondary-color;
+	overflow-x: hidden;
+	display: flex;
+	justify-content: center;
+}
+
+.App {
+	min-height: 100vh;
+	padding: $padding-large;
+}
+
+/* Улучшенный скроллбар */
+::-webkit-scrollbar {
+	width: $scrollbar-width;
+	height: $scrollbar-width;
+}
+
+::-webkit-scrollbar-track {
+	background: $scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $scrollbar-thumb;
+	transition: background $transition-fast;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: $scrollbar-thumb-hover;
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+/* Специальный скроллбар для истории транзакций */
+.history-container::-webkit-scrollbar {
+	width: $scrollbar-width;
+}
+
+.history-container::-webkit-scrollbar-track {
+	background: $scrollbar-track;
+	margin: 4px 0;
+}
+
+.history-container::-webkit-scrollbar-thumb {
+	background: $scrollbar-thumb;
+	transition: background $transition-fast;
+}
+
+.history-container::-webkit-scrollbar-thumb:hover {
+	background: $scrollbar-thumb-hover;
+}
+
+/* Общие эффекты */
+.glass-effect {
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+}
+
+.hover-lift {
+	transition: transform $transition-fast, box-shadow $transition-fast;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $card-shadow-hover;
+	}
+}
+
+.gradient-text {
+	background: $primary-gradient;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}

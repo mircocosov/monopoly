@@ -1,0 +1,272 @@
+@import "@/styles/variables.scss";
+
+.monopolyGame {
+	// Основной контейнер игры
+}
+
+.gameHeader {
+	text-align: center;
+	margin-bottom: $margin-xl;
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+	padding: $padding-large;
+	border-radius: $border-radius-large;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0.05) 100%
+		);
+		z-index: 0;
+	}
+
+	h1 {
+		font-size: $font-size-title;
+		background: $primary-gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin-bottom: $margin-medium;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+		position: relative;
+		z-index: 1;
+		font-weight: 800;
+	}
+}
+
+.newGameBtn {
+	background: $danger-gradient;
+	color: $white;
+	border: none;
+	padding: 12px 24px;
+	border-radius: $border-radius-xl;
+	font-size: $font-size-normal;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all $transition-fast;
+	box-shadow: $danger-button-shadow;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	position: relative;
+	z-index: 1;
+
+	&:hover {
+		background: $danger-gradient-hover;
+		transform: translateY(-2px);
+		box-shadow: $danger-button-shadow-hover;
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+}
+
+.gameContainer {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: $margin-large;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.leftPanel,
+.rightPanel {
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+	border-radius: $border-radius-large;
+	padding: $padding-large;
+	height: fit-content;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.centerPanel {
+	background: $glass-background;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+	border-radius: $border-radius-large;
+	padding: $padding-large;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0.05) 100%
+		);
+		z-index: 0;
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.loadPrompt {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: $white;
+	backdrop-filter: blur(5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: $z-modal;
+}
+
+.loadPromptContent {
+	background: $background-gradient;
+	backdrop-filter: blur(10px);
+	border: 1px solid $glass-border;
+	box-shadow: $glass-shadow;
+	padding: $padding-xl;
+	border-radius: $border-radius-large;
+	text-align: center;
+	max-width: 400px;
+	width: 90%;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0.05) 100%
+		);
+		z-index: 0;
+	}
+
+	h2 {
+		background: $white;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		margin-bottom: $margin-medium;
+		position: relative;
+		z-index: 1;
+		font-weight: 700;
+	}
+
+	p {
+		color: $white;
+		margin-bottom: 25px;
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.loadPromptButtons {
+	display: flex;
+	gap: $margin-medium;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+}
+
+.loadGameBtn {
+	background: $success-gradient;
+	color: $white;
+	border: none;
+	padding: 12px 24px;
+	border-radius: $border-radius-xl;
+	font-size: $font-size-normal;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all $transition-fast;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: $success-button-shadow;
+
+	&:hover {
+		background: $success-gradient-hover;
+		transform: translateY(-2px);
+		box-shadow: $success-button-shadow-hover;
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+}
+
+// Адаптивность
+@media (max-width: $breakpoint-tablet) {
+	.gameContainer {
+		grid-template-columns: 1fr;
+		gap: $margin-medium;
+	}
+
+	.leftPanel,
+	.rightPanel {
+		order: 2;
+	}
+
+	.centerPanel {
+		order: 1;
+	}
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.gameHeader h1 {
+		font-size: 2rem;
+	}
+
+	.fieldsGrid {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: $margin-small;
+	}
+
+	.gameField {
+		padding: $padding-medium;
+	}
+
+	.fieldName {
+		font-size: $font-size-normal;
+	}
+
+	.fieldDescription {
+		font-size: 0.8rem;
+	}
+}

@@ -1,0 +1,84 @@
+// Цветовая палитра
+$primary-color: #3498db;
+$primary-dark: #2980b9;
+$secondary-color: #2c3e50;
+$success-color: #27ae60;
+$success-dark: #229954;
+$danger-color: #e74c3c;
+$danger-dark: #c0392b;
+$warning-color: #f39c12;
+$warning-dark: #e67e22;
+$info-color: #9b59b6;
+$light-gray: #ecf0f1;
+$medium-gray: #95a5a6;
+$dark-gray: #7f8c8d;
+$white: #ffffff;
+$black: #000000;
+
+// Градиенты
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$primary-gradient-hover: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+$danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+$danger-gradient-hover: linear-gradient(135deg, #ff5252 0%, #d32f2f 100%);
+$success-gradient: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+$success-gradient-hover: linear-gradient(135deg, #26d0ce 0%, #1a9f8e 100%);
+$warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$info-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+// Фон
+$background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$card-background: rgba(255, 255, 255, 0.95);
+$glass-background: rgba(255, 255, 255, 0.1);
+$glass-border: rgba(255, 255, 255, 0.2);
+
+// Тени
+$card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+$card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+$button-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+$button-shadow-hover: 0 6px 20px rgba(52, 152, 219, 0.4);
+$danger-button-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+$danger-button-shadow-hover: 0 6px 20px rgba(231, 76, 60, 0.4);
+$success-button-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+$success-button-shadow-hover: 0 6px 20px rgba(39, 174, 96, 0.4);
+$glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+
+// Шрифты
+$font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$font-size-small: 0.8rem;
+$font-size-normal: 1rem;
+$font-size-large: 1.1rem;
+$font-size-xl: 1.2rem;
+$font-size-xxl: 1.3rem;
+$font-size-title: 2.5rem;
+
+// Размеры
+$border-radius-small: 8px;
+$border-radius-medium: 12px;
+$border-radius-large: 15px;
+$border-radius-xl: 25px;
+$padding-small: 10px;
+$padding-medium: 15px;
+$padding-large: 20px;
+$padding-xl: 40px;
+$margin-small: 10px;
+$margin-medium: 15px;
+$margin-large: 20px;
+$margin-xl: 30px;
+
+// Анимации
+$transition-fast: 0.3s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Брейкпоинты
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1200px;
+
+// Z-индексы
+$z-modal: 1000;
+
+// Скроллбар
+$scrollbar-width: 6px;
+$scrollbar-track: rgba(255, 255, 255, 0.1);
+$scrollbar-thumb: rgba(255, 255, 255, 0.3);
+$scrollbar-thumb-hover: rgba(255, 255, 255, 0.5);
